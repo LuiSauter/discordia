@@ -4,7 +4,7 @@ export const Discord = (props) => {
     height={34}
     viewBox="0 0 124 34"
     {...props}
-    className='text-white'
+    // className='text-white'
     title='Discordia'
   >
     <g fill="currentColor">
