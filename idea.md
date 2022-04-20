@@ -41,7 +41,7 @@
 ## Colors of Discord
   ```css
   .purple {
-    color: #5865F2;
+    color: #404eed;
   }
   .primary {
     color: #202225;
@@ -50,3 +50,23 @@
     color: #292b2f;
   }
   ```
+
+## Default colors in home page
+  ```js
+  colors: {
+    discord_blue: '#404eed',
+    discord_blurple: '#7289da',
+    discord_purple: '#8565f2',
+    discord_green: '#3ba55c'
+  }
+  ```
+
+## Home page image hero
+  `https://discord.com/assets/e6d57714479874c665b36c7adee76b1d.svg`
+  `https://discord.com/assets/8a8375ab7908384e1fd6efe408284203.svg`
+  `https://discord.com/assets/c40c84ca18d84633a9d86b4046a91437.svg`
+  `https://discord.com/assets/46b2132c01604c9493d558de444929f4.svg`
+  `https://discord.com/assets/575a0322f3b36ca2fecb23ad2c6dd5ad.svg`
+  `https://discord.com/assets/921b1ae33edca174b6ebe787bb8b6c3b.svg`
+  `https://discord.com/assets/98ea5b9e92e304c7d352ac462996adc5.svg`
+  `https://discord.com/assets/a188414ce83f2454b9d71a47c3d95909.svg`
