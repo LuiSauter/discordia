@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --silent",
+    "test": "react-scripts test --silent --verbose",
     "eject": "react-scripts eject",
     "co": "sui-mono commit"
   },
