@@ -1,6 +1,8 @@
 export const hrefs = [
   'Download',
-  'Why Discordia',
   'Nitro',
+  'Safety',
   'Support',
+  'Blog',
+  'Careers',
 ]
