@@ -7,9 +7,9 @@ const HeaderModal = ({ visible, handleVisible }) => {
   const transitionModal = `${visible ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-200 ease-in-out`
   return (
     <Fragment>
-      {visible && <div onClick={handleVisible} className='lg:hidden bg-[#0000004d] fixed inset-0 transition-all' />}
+      {visible && <div onClick={handleVisible} className='lg:hidden bg-[#0000004d] fixed inset-0 transition-all z-10' />}
       <div
-        className={`lg:hidden bg-white fixed rounded-l-xl top-0 right-0 bottom-0 w-80 ${transitionModal} pt-6 pr-12 pb-28 pl-6 overflow-auto min-h-screen`}
+        className={`lg:hidden bg-white fixed rounded-l-xl top-0 right-0 bottom-0 w-80 ${transitionModal} pt-6 pr-12 pb-28 pl-6 overflow-auto min-h-screen z-20`}
       >
         <div className='flex gap-4 flex-col'>
           <a href="/" className='flex gap-[1px] text-[19px] text-black font-extrabold'>
@@ -22,11 +22,11 @@ const HeaderModal = ({ visible, handleVisible }) => {
       </div>
       <button
         onClick={handleVisible}
-        className={`lg:hidden fixed top-0 right-0 pr-6 pt-6 text-black ${transitionModal}`}
+        className={`lg:hidden fixed top-0 right-0 pr-6 pt-6 text-black z-20 ${transitionModal}`}
       >
         <Exit />
       </button>
-      <div className={`lg:hidden bg-white fixed bottom-0 right-0 w-80 p-6 text-center rounded-l-xl ${transitionModal}`}>
+      <div className={`lg:hidden bg-white fixed bottom-0 right-0 w-80 p-6 text-center rounded-l-xl z-20 ${transitionModal}`}>
         <button
           className='w-full px-4 py-2 bg-discord_blue_btn text-white rounded-full hover:opacity-70 transition-opacity'
         >
