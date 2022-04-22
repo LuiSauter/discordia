@@ -1,9 +1,18 @@
-import Header from "./components/Header/Header";
+import { Route } from 'wouter'
+import Login from "./Pages/Login/Login";
 
 function App() {
   return (
-    <div className="bg-discord_blue min-h-screen">
-      <Header />
+    <div className="">
+      <Route path='/'>
+        <Login />
+      </Route>
+      <Route path='/channels'>
+        {/* <Home /> */}
+      </Route>
+      <Route path='/channels/:id'>
+        {/* <Home /> */}
+      </Route>
     </div>
   );
 }
