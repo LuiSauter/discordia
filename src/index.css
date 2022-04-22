@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Ginto Nord';
+  src: url('/public/ae7c84783ad48b6d1c8e2bfbe707e0d4.woff2') format('woff2');
+}
+
 @layer components {
   .link {
     @apply cursor-pointer font-semibold text-sm text-white hover:underline;
   }
+}
+
+#title {
+  font-family: "Ginto Nord","Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
 body {
