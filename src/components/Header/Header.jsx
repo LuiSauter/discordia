@@ -4,6 +4,7 @@ import { Discord } from '../../assets/icons/Discord'
 import { Menu } from '../../assets/icons/Menu'
 import HeaderModal from './HeaderModal'
 import Togglable from '../Togglable/Togglable'
+import { Link } from 'wouter'
 
 const Header = ({ signIn }) => {
 
@@ -24,13 +25,13 @@ const Header = ({ signIn }) => {
 
   return (
     <section className='bg-discord_blue'>
-      <header className=' h-[11vh] px-6 flex items-center justify-between transition-all max-w-7xl mx-auto'>
-        <a href="/" className='flex gap-[1px] text-[20px] text-white font-extrabold'>
+      <header className='px-6 py-6 flex items-center justify-between transition-all max-w-7xl mx-auto'>
+        <Link href="/" className='flex gap-[1px] text-[20px] text-white font-extrabold'>
           <Discord />ia
-        </a>
+        </Link>
         <div className='hidden lg:flex space-x-6 text-white'>
           {hrefs.map((hrf, index) => (
-            <a key={index} href={`/${hrf.toLowerCase()}`} className='link'>{hrf}</a>
+            <Link key={index} href={`/${hrf.toLowerCase()}`} className='link'>{hrf}</Link>
           ))}
         </div>
         <div className='flex space-x-4 items-center'>
