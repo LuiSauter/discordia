@@ -1,5 +1,6 @@
 import React from 'react'
 import { presentation } from '../../assets/data/presentation'
+import { Fourth } from '../../assets/icons/presentation/Fourth'
 
 const Presentation = () => {
   return (
@@ -20,6 +21,22 @@ const Presentation = () => {
           </div>
         </article>
       ))}
+      <article
+        className={` px-6 py-14 md:px-10 md:py-20 h-full lg:min-h-screen 2xl:min-h-full w-full flex flex-col items-center justify-center`}
+      >
+        <div className='max-w-7xl h-full flex flex-col items-center md:gap-4 w-full'>
+          <section className='w-full mx-auto xl:px-28'>
+            <h2 id='title' className='text-xl sm:text-3xl md:text-[40px] w-full opacity-[0.85] leading-5 md:text-center lg:px-16'>TECNOLOGÍA CONFIABLE PARA ESTAR CERCA</h2>
+            <footer className='pt-6 md:text-base lg:text-xl w-full md:text-center'>La voz y el video de baja latencia se sienten como si estuvieras en la misma habitación. Salude a través del video, vea a sus amigos transmitir sus juegos o reúnase y tenga una sesión de dibujo con pantalla compartida.</footer>
+          </section>
+          <div className={`w-full relative mt-6`}>
+            <Fourth />
+          </div>
+        </div>
+      </article>
+      <article>
+        <h2>¿Listo para comenzar tu viaje?</h2>
+      </article>
     </section>
   )
 }
