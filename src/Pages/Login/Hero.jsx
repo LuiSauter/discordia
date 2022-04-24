@@ -14,9 +14,9 @@ const Hero = () => {
           <div className='flex flex-row flex-wrap md:items-start sm:items-center gap-6 sm:gap-4 md:gap-6 mt-6'>
             <button className='bg-white text-black w-max font-medium flex items-center justify-center rounded-full py-4 px-8 text-lg sm:text-lg hover:shadow-xl hover:text-discord_blurple transition duration-200 ease-in-out focus:outline-none'>
               <Download />
-              Download for Windows
+              Download for Linux
             </button>
-            <button className='bg-gray-800 text-white w-max font-medium flex items-center justify-center rounded-full py-4 px-8 text-lg sm:text-lg sm:whitespace-nowrap hover:bg-gray-800 focus:outline-none hover:shadow-xl hover:text-discord_blurple transition duration-200 ease-in-out overflow-hidden'>Open Discord in your browser</button>
+            <button className='bg-gray-800 text-white w-max font-medium flex items-center justify-center rounded-full py-4 px-8 text-lg sm:text-lg sm:whitespace-nowrap hover:bg-gray-800 focus:outline-none hover:shadow-xl hover:text-discord_blurple transition duration-200 ease-in-out overflow-hidden'>Open Discordia in your browser</button>
           </div>
         </div>
         <div className='flex h-max justify-center items-end relative md:absolute md:top-0 md:left-0 md:h-full md:w-full'>
