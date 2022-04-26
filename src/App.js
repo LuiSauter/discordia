@@ -1,17 +1,18 @@
 import { Route } from 'wouter'
+import Home from './Pages/Home';
 import Login from "./Pages/Login";
 
 function App() {
   return (
-    <div className="">
+    <div>
       <Route path='/'>
         <Login />
       </Route>
       <Route path='/channels'>
-        {/* <Home /> */}
+        <Home />
       </Route>
       <Route path='/channels/:id'>
-        {/* <Home /> */}
+        <Home />
       </Route>
     </div>
   );
