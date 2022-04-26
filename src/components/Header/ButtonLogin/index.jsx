@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useLocation } from 'wouter'
+import { auth, signInWithPopup, provider } from '../../../lib/firebase'
+
 const ButtonLogin = () => {
-  const [auth, setAuth] = useState(false)
+  const [user] = useAuthState(auth)
+  const [, setLocation] = useLocation()
+
+  const signIn = () => {
+    signInWithPopup(auth, provider)
+      .then(() => setLocation('/channels'))
+      .catch(error => alert(error.message))
+  }
+
   return (
     <button
       className='bg-white py-2 rounded-full text-sm md:text-sm px-4 focus:outline-none hover:shadow-lg hover:text-discord_blurple transition duration-200 ease-in-out whitespace-nowrap'
       onClick={() => {
-        setAuth(!auth)
+        user ? setLocation('/channels') : signIn()
       }}
     >
-      {auth ? 'Open Discordia' : 'Login'}
+      {user ? 'Open Discordia' : 'Login'}
     </button>
   )
 }
