@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       {!user && setLocation('/', { replace: true })}
-      <div className='flex h-screen bg-[#222]'>
+      {/* <div className='flex h-screen bg-[#222]'>
         <nav>
           <div>
             <img src="https://rb.gy/kuaslg" alt="discordia" className='h-5' />
@@ -18,7 +18,7 @@ const Home = () => {
           <hr className='border-gray-700 border w-8 mx-auto bg-gray-700' />
           <ServerIcon image='https://rb.gy/qidcpp' />
         </nav>
-      </div>
+      </div> */}
     </>
   )
 }
