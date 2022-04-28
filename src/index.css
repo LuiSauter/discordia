@@ -11,6 +11,10 @@
   .link {
     @apply cursor-pointer font-semibold text-sm text-white hover:underline;
   }
+
+  .server-default {
+    @apply h-12 flex justify-center items-center cursor-pointer;
+  }
 }
 
 #title {
@@ -29,9 +33,9 @@ body {
 /* Server Icon */
 .server-icon {
   border-radius: 100%;
-  transition: all .5s ease-out;
+  transition: all .8s ease-out;
 }
 .server-icon:hover {
   border-radius: 1rem;
-  transition: all .3s ease-out;
+  transition: all .2s ease-out;
 }
