@@ -4,8 +4,8 @@ const ServerIcon = ({ image = '' }) => {
   return (
     <img
       src={image}
-      alt=""
-      className='server-icon h-12'
+      alt="server discordia"
+      className='server-icon server-default w-12 object-cover'
     />
   )
 }
