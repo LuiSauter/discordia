@@ -1,20 +1,39 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useLocation } from 'wouter'
+import { auth, signOut } from '../../lib/firebase'
+
 import { ArrowDown } from '../../assets/icons/ArrowDown'
 import { Plus } from '../../assets/icons/Plus'
 import Channel from '../../components/Channel/Channel'
+import LoadingHome from '../../components/LoadingHome'
 import ServerIcon from '../../components/ServerIcon'
-import { auth } from '../../lib/firebase'
+import User from '../../components/User'
 
 const Home = () => {
-  const [user] = useAuthState(auth)
+  const [user, loading] = useAuthState(auth)
   const [, setLocation] = useLocation()
+
+  // const logout = () => {
+  //   signOut(auth)
+  //   setLocation('/', { replace: true })
+  // }
+
+  useEffect(() => {
+    let cleanup = true
+    if (cleanup) {
+      (!loading && user === null) && setLocation('/', { replace: true })
+    }
+    return () => {
+      cleanup = false
+    }
+  }, [loading, setLocation, user])
+
+  console.log(user, loading)
 
   return (
     <Fragment>
-      {!user && setLocation('/', { replace: true })}
-      <div className='flex h-screen'>
+      {loading ? <LoadingHome /> : <div className='flex h-screen'>
         <nav className='flex min-w-max flex-col space-y-3 bg-discord_nav_server p-3 h-full overflow-y-auto overflow-x-hidden'>
           <div className='server-icon server-default bg-discord_server hover:bg-discord_purple min-h-[48px]'>
             <img src="https://rb.gy/kuaslg" alt="discordia" className='h-5' />
@@ -27,26 +46,68 @@ const Home = () => {
             <Plus styleString='w-8 w-8' />
           </div>
         </nav>
-        <section className='h-screen bg-discord_channels_bg flex flex-col'>
-          <header className='py-3 px-4 w-60 border-b-2 border-discord_nav_server/80 hover:bg-discord_hover flex flex-row items-center justify-between text-white transition-all cursor-pointer'>
-            <h1 className='text-white text-base font-bold'>Developers</h1>
-            <ArrowDown styleString='h-5 w-5' />
-          </header>
-          <div className='h-full pr-2 overflow-x-hidden overflow-y-auto'>
-            {/* repeat */}
-            <div className='flex flex-row items-center text-discord_gray hover:text-white/80'>
-              <h2 className='w-full px-1 text-inherit font-semibold text-xs flex flex-row cursor-pointer'>
-                <ArrowDown styleString='h-4 w-4 text-inherit mr-1' /> INFORMATION
-              </h2>
-              <Plus styleString='h-6 w-6 text-inherit mr-2' />
+        <section className='h-screen bg-discord_channels_bg flex flex-col justify-between'>
+          <nav className='flex flex-col h-full justify-start'>
+            <header className='py-3 px-4 w-60 border-b-2 border-discord_nav_server/80 hover:bg-discord_hover flex flex-row items-center justify-between text-white transition-all cursor-pointer'>
+              <h1 className='text-white text-base font-bold'>Developers</h1>
+              <ArrowDown styleString='h-5 w-5' />
+            </header>
+            <div className='h-full pr-2 overflow-x-hidden overflow-y-auto'>
+              {/* repeat */}
+              <div className='flex flex-row items-center text-discord_gray hover:text-white/80'>
+                <h2 className='w-full px-1 text-inherit font-semibold text-xs flex flex-row cursor-pointer'>
+                  <ArrowDown styleString='h-4 w-4 text-inherit mr-1' /> INFORMATION
+                </h2>
+                <Plus styleString='h-6 w-6 text-inherit mr-2' />
+              </div>
+              <ul className='pl-2 text-discord_gray'>
+                <Channel channelName='general' />
+              </ul>
+              {/* repeat */}
             </div>
-            <ul className='pl-2 text-discord_gray'>
-              <Channel channelName='general' />
-            </ul>
-            {/* repeat */}
-          </div>
+          </nav>
+          <User image='https://avatars.githubusercontent.com/u/88288135?v=4' username='sauterdev' id='9446' />
         </section>
-      </div>
+        <section className='bg-discord_hover h-full min-h-screen w-full overflow-hidden relative flex flex-col'>
+          <header className='py-3 px-4 w-full border-b-2 border-discord_nav_server/50 hover:bg-discord_hover flex flex-row items-center justify-between text-white transition-all'>
+            <h3 className='text-white text-base font-bold'>Developers</h3>
+          </header>
+          <main className='h-full overflow-hidden flex flex-row relative text-white'>
+            <div className='w-full overflow-hidden flex flex-col relative justify-end'>
+              <div className='w-full h-full overflow-y-auto mb-16'>
+                leading-normal
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+
+                leading-relaxed
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+
+                leading-loose
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+                leading-normal
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+
+                leading-relaxed
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+
+                leading-loose
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+                leading-normal
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+
+                leading-relaxed
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+
+                leading-loose
+                So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I was a marine biologist.
+              </div>
+              <div className='h-16 w-full bg-discord_server absolute bottom-0 left-0'>sticky</div>
+            </div>
+            <aside className='w-56 flex flex-shrink-0 h-full bg-discord_channels_bg'>
+              ass
+            </aside>
+          </main>
+        </section>
+      </div>}
     </Fragment>
   )
 }

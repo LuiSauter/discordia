@@ -14,6 +14,7 @@ module.exports = {
         discord_channels_bg: '#2f3136',
         discord_hover: '#36393f',
         discord_gray: '#b9bbbe',
+        discord_user: '#292b2f'
       }
     },
   },

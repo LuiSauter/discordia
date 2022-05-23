@@ -13,7 +13,7 @@
   }
 
   .server-default {
-    @apply h-12 flex justify-center items-center cursor-pointer;
+    @apply h-12 flex flex-shrink-0 justify-center items-center cursor-pointer;
   }
 }
 
