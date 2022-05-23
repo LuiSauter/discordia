@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app'
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBRl9Ko8bNurNyCfVoHGmXdSLYkWp-bQ-s",
-  authDomain: "discordia-c5870.firebaseapp.com",
-  projectId: "discordia-c5870",
-  storageBucket: "discordia-c5870.appspot.com",
-  messagingSenderId: "420428063395",
-  appId: "1:420428063395:web:9dd8fc81fc8a1c14605516"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 initializeApp(firebaseConfig)

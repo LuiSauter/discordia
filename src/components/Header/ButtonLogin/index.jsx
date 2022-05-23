@@ -2,6 +2,7 @@ import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useLocation } from 'wouter'
 import { auth, signInWithPopup, provider } from '../../../lib/firebase'
+import { loginWithGoogle } from '../../../services'
 
 const ButtonLogin = () => {
   const [user] = useAuthState(auth)
@@ -9,7 +10,14 @@ const ButtonLogin = () => {
 
   const signIn = () => {
     signInWithPopup(auth, provider)
-      .then(() => setLocation('/channels'))
+      .then((data) => {
+        loginWithGoogle({
+          username: data.user.displayName,
+          email: data.user.email,
+          photoUrl: data.user.photoURL
+        })
+        setLocation('/channels')
+      })
       .catch(error => alert(error.message))
   }
 
