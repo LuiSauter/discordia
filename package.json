@@ -2,6 +2,13 @@
   "name": "discordia",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --verbose",
+    "eject": "react-scripts eject",
+    "co": "sui-mono commit"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.1.1",
@@ -16,18 +23,12 @@
     "web-vitals": "2.1.4",
     "wouter": "2.8.0-alpha.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --verbose",
-    "eject": "react-scripts eject",
-    "co": "sui-mono commit"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "@s-ui/mono": "2.26.0",
+    "autoprefixer": "10.4.4",
+    "postcss": "8.4.12",
+    "standard": "16.0.4",
+    "tailwindcss": "3.0.24"
   },
   "browserslist": {
     "production": [
@@ -41,11 +42,10 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@s-ui/mono": "2.26.0",
-    "autoprefixer": "10.4.4",
-    "postcss": "8.4.12",
-    "standard": "16.0.4",
-    "tailwindcss": "3.0.24"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   }
 }
