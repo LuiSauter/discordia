@@ -15,10 +15,10 @@ const Home = () => {
   const [user, loading] = useAuthState(auth)
   const [, setLocation] = useLocation()
 
-  // const logout = () => {
-  //   signOut(auth)
-  //   setLocation('/', { replace: true })
-  // }
+  const logout = () => {
+    signOut(auth)
+    setLocation('/', { replace: true })
+  }
 
   useEffect(() => {
     let cleanup = true
