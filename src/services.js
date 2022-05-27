@@ -9,7 +9,6 @@ export const loginWithGoogle = async ({ username = '', email = '', photoUrl = ''
       body: JSON.stringify({ username, email, photoUrl })
     })
     const data = await login.json()
-    console.log(data)
     return data
   } catch (error) {
     console.error(error.message)

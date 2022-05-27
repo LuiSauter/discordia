@@ -12,7 +12,7 @@ const ButtonLogin = () => {
     signInWithPopup(auth, provider)
       .then((data) => {
         loginWithGoogle({
-          username: data.user.displayName,
+          username: data.user.displayName.split(' ').join(''),
           email: data.user.email,
           photoUrl: data.user.photoURL
         })
