@@ -7,7 +7,7 @@ const Channel = ({ id, channelName }) => {
   }
 
   return (
-    <li className='font-medium flex items-center cursor-pointer hover:bg-discord_hover p-1 rounded-md hover:text-white/80' onClick={setChannel}>
+    <li className='text-sm font-medium flex gap-1 items-center cursor-pointer hover:bg-discord_channel_hover p-1 rounded-md hover:text-white/80' onClick={setChannel}>
       <HashtagIcon /> {channelName}
     </li>
   )
