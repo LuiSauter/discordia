@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { Route } from 'wouter'
 import { ToggleContextProvider } from './context/ToggleContext';
+import Error from './Pages/Error';
 import Home from './Pages/Home';
 import Login from "./Pages/Login";
 
@@ -21,6 +22,9 @@ function App() {
           <Home />
         </Route>
       </ToggleContextProvider>
+      <Route path='/:rest*'>
+        <Error />
+      </Route>
     </Fragment>
   );
 }
