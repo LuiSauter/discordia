@@ -31,7 +31,8 @@ const HeaderModal = ({ visible, handleVisible }) => {
           </Link>
           <Link href='/' className={`${location === '/' && 'bg-slate-200/80'} text-base bg-slate-200/80 py-2 px-4 rounded-lg font-semibold`}>home</Link>
           {hrefs.map((hrf, index) => (
-            <Link key={index} href={`/${hrf.toLowerCase()}`} className='text-base py-2 px-4 rounded-lg font-semibold hover:underline'>{hrf}</Link>
+            <span key={index} className='text-base py-2 px-4 rounded-lg font-semibold hover:underline cursor-pointer' title={hrf}>{hrf}</span>
+            // <Link key={index} href={`/${hrf.toLowerCase()}`} className='text-base py-2 px-4 rounded-lg font-semibold hover:underline'>{hrf}</Link>
           ))}
         </div>
       </div>

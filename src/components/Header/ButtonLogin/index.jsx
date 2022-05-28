@@ -16,7 +16,7 @@ const ButtonLogin = () => {
           email: data.user.email,
           photoUrl: data.user.photoURL
         })
-        setLocation('/channels')
+        setLocation('/channels/@me')
       })
       .catch(error => alert(error.message))
   }
@@ -25,7 +25,7 @@ const ButtonLogin = () => {
     <button
       className='bg-white py-2 rounded-full text-sm md:text-sm px-4 focus:outline-none hover:shadow-lg hover:text-discord_blurple transition duration-200 ease-in-out whitespace-nowrap'
       onClick={() => {
-        user ? setLocation('/channels') : signIn()
+        user ? setLocation('/channels/@me') : signIn()
       }}
     >
       {user ? 'Open Discordia' : 'Login'}
