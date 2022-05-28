@@ -8,7 +8,7 @@ const Presentation = () => {
       {presentation.map((card, index) => (
         <article
           key={index}
-          className={`${index % 2 !== 0 && 'bg-[#f6f6f6]'} px-6 py-14 md:px-10 md:py-20 h-full lg:min-h-screen 2xl:min-h-full w-full flex flex-col items-center justify-center`}
+          className={`${index % 2 !== 0 ? 'bg-[#f6f6f6]' : 'bg-[#ffffff]'} px-6 py-14 md:px-10 md:py-20 h-full lg:min-h-screen 2xl:min-h-full w-full flex flex-col items-center justify-center`}
         >
           <div className={`${index % 2 !== 0 ? 'lg:grid-cols-[1fr_1.5fr]' : 'lg:grid-cols-[1.5fr_1fr]'} max-w-7xl h-full grid grid-cols-1 md:grid-cols-2 items-center md:gap-4 w-full`}>
             <div className={`${index % 2 !== 0 ? 'md:order-1' : ''} w-full relative mt-6`}>
@@ -22,7 +22,7 @@ const Presentation = () => {
         </article>
       ))}
       <article
-        className={` px-6 py-14 md:px-10 md:py-20 h-full lg:min-h-screen 2xl:min-h-full w-full flex flex-col items-center justify-center`}
+        className={`bg-[#ffffff] px-6 py-14 md:px-10 md:py-20 h-full lg:min-h-screen 2xl:min-h-full w-full flex flex-col items-center justify-center`}
       >
         <div className='max-w-7xl h-full flex flex-col items-center md:gap-4 w-full'>
           <section className='w-full mx-auto xl:px-28'>
@@ -35,9 +35,9 @@ const Presentation = () => {
         </div>
       </article>
       <article className='p-6 sm:text-center'>
-        <h2 className='text-3xl font-bold'>Ready to start your journey?</h2>
+        <h2 className='text-3xl font-bold text-white'>Ready to start your journey?</h2>
       </article>
-      <footer className='text-center opacity-50 p-4 selection:bg-discord_purple'>Discordia is a clone Discord - createdBy: sauterdev</footer>
+      <footer className='text-center opacity-50 pb-6 selection:bg-discord_purple text-gray-200'>Discordia is a clone Discord - Developer sauterdev</footer>
     </section>
   )
 }
