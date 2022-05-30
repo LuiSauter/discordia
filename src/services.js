@@ -16,7 +16,7 @@ export const loginWithGoogle = async ({ username = '', email = '', photoUrl = ''
   }
 }
 
-export const getUser = async ({ username = 'sauter' }) => {
+export const getUser = async ({ username = '' }) => {
   const user = await fetch(`${REACT_APP_URL_DATABASE + REACT_APP_END_POINT_USER}/${username}`)
   const data = await user.json()
   return data
