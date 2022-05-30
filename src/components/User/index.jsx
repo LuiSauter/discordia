@@ -8,8 +8,8 @@ const User = ({ image = '', username = "", id = '' }) => {
         <img className='rounded-full' src={image} alt={username} />
       </div>
       <div className='text-[13px] text-white font-semibold flex flex-col w-[90px] overflow-hidden leading-4'>
-        <span className='whitespace-nowrap w-full'>{username}</span>
-        <span className='font-normal'>#{id}</span>
+        <span title={username} className='whitespace-nowrap w-full cursor-pointer'>{username}</span>
+        <span className='font-normal'>#{id.substring(0, 4)}</span>
       </div>
       <div className='flex flex-row text-white'>
         <span title='Desactivar Silencio' className='rounded-md w-8 h-8 grid place-content-center place-items-center hover:bg-discord_hover cursor-pointer relative'>
