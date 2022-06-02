@@ -1,5 +1,5 @@
-export const LoadingIcon = () => (<svg
-  className='animate-spin h-6 w-6 mr-1'
+export const LoadingIcon = ({ color = 'text-discord_blurple' }) => (<svg
+  className={`animate-spin h-6 w-6 mr-1 ${color}`}
   xmlns='http://www.w3.org/2000/svg'
   fill='none'
   viewBox='0 0 24 24'
