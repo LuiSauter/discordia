@@ -4,35 +4,44 @@ import { Route } from 'wouter'
 import { Provider } from 'react-redux'
 import store from './store'
 import { ToggleContextProvider } from './context/ToggleContext';
-import Error from './Pages/Error';
 import Home from './Pages/Home';
 import Login from "./Pages/Login";
+import { Redirect } from 'wouter';
+// import { Router } from 'wouter';
+// import makeCachedMatcher from 'wouter/matcher'
+// import { pathToRegexp } from 'path-to-regexp'
+
+// const convertPathToRegexp = (path) => {
+//   let keys = [];
+
+//   // we use original pathToRegexp package here with keys
+//   const regexp = pathToRegexp(path, keys, { strict: true });
+//   return { keys, regexp };
+// };
+
+// const customMatcher = makeCachedMatcher(convertPathToRegexp);
 
 function App() {
   return (
     <Fragment>
       <Provider store={store}>
-        <Switch>
-          <Route path='/'>
-            <Login />
-          </Route>
-          <ToggleContextProvider>
-            <Route path='/channels/@me'>
-              <Home />
+        <ToggleContextProvider>
+          {/* <Router base='/channels/@' matcher={customMatcher}> */}
+          <Switch>
+            <Route path='/'>
+              <Login />
             </Route>
-            <Route path='/channels/@me/:id'>
-              <Home />
+            <Route path='/channels/@me' component={Home} />
+            <Route path='/channels/@me/:id' component={Home} />
+            <Route path='/channels/:serverId/:id' component={Home} />
+            <Route path='/:rest*'>
+              <Redirect to='/channels/@me' />
             </Route>
-            <Route path='/channels/:serverId/:id'>
-              <Home />
-            </Route>
-          </ToggleContextProvider>
-          <Route path='/:rest*'>
-            <Error />
-          </Route>
-        </Switch>
+          </Switch>
+          {/* </Router> */}
+        </ToggleContextProvider>
       </Provider>
-    </Fragment>
+    </Fragment >
   );
 }
 
