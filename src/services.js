@@ -1,8 +1,8 @@
-const { REACT_APP_URL_DATABASE, REACT_APP_END_POINT_USER } = process.env
+import { dbConstants } from "./utils/constants"
 
 export const loginWithGoogle = async ({ username = '', email = '', photoUrl = '' }) => {
   try {
-    const login = await fetch(`${REACT_APP_URL_DATABASE + REACT_APP_END_POINT_USER}/auth`, {
+    const login = await fetch(`${dbConstants.dbApiUri + dbConstants.dbEndPointUser}/auth`, {
       method: 'POST',
       cache: 'no-cache',
       headers: { 'Content-Type': 'application/json' },
@@ -17,7 +17,7 @@ export const loginWithGoogle = async ({ username = '', email = '', photoUrl = ''
 }
 
 export const getUser = async ({ username = '' }) => {
-  const user = await fetch(`${REACT_APP_URL_DATABASE + REACT_APP_END_POINT_USER}/${username}`)
+  const user = await fetch(`${dbConstants.dbApiUri + dbConstants.dbEndPointUser}/${username}`)
   const data = await user.json()
   return data
 }
