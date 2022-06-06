@@ -40,3 +40,41 @@ body {
   border-radius: 1rem;
   transition: all .2s ease-out;
 }
+
+/* Custom Scrollbar */
+.scrollbar-chat::-webkit-scrollbar {
+  width: 8px;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0px;
+}
+.scrollbar-visible::-webkit-scrollbar,
+.scrollbar-visible-over::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.scrollbar-chat::-webkit-scrollbar-track {
+  background-color: #292b2f82;
+  border-radius: 1rem;
+}
+.scrollbar-visible::-webkit-scrollbar-track,
+.scrollbar-visible-over::-webkit-scrollbar-track {
+  background-color: #2f3136;
+  border-radius: 1rem;
+}
+
+/* Handle */
+.scrollbar-chat::-webkit-scrollbar-thumb,
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: #202225;
+  border-radius: 1rem;
+}
+.scrollbar-visible-over::-webkit-scrollbar-thumb {
+  background: #2f3136;
+}
+
+/* Handle on hover */
+.scrollbar-chat::-webkit-scrollbar-thumb:hover {
+  background: #202225;
+}

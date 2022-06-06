@@ -16,7 +16,7 @@ module.exports = {
         discord_gray: '#b9bbbe',
         discord_channel_hover: '#4d515a',
         discord_user: '#292b2f',
-        discord_inputChat: '#40444b'
+        discord_inputChat: '#40444b',
       }
     },
   },

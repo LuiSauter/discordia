@@ -1,10 +1,10 @@
-export const Exit = ({ title = 'Exit', titleId = '' }) => {
+export const Exit = ({ title = 'Exit', titleId = '', width = 'h-6 w-6' }) => {
   return (
     <svg
       stroke="currentColor"
       fill="currentColor"
       viewBox="0 0 512 512"
-      className="h-6 w-6"
+      className={`${width}`}
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby={titleId}
     >
