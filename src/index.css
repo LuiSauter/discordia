@@ -78,3 +78,7 @@ body {
 .scrollbar-chat::-webkit-scrollbar-thumb:hover {
   background: #202225;
 }
+
+dialog::backdrop {
+  background-color: #000000d1;
+}

@@ -1,6 +1,5 @@
-import React, { Fragment, useEffect } from 'react'
-import { useLocation } from 'wouter'
-import { Link } from 'wouter'
+import { Fragment, useEffect } from 'react'
+import { Link, useLocation } from 'wouter'
 import { hrefs } from '../../../assets/data/hrefs'
 import { Discord } from '../../../assets/icons/Discord'
 import { Exit } from '../../../assets/icons/Exit'
