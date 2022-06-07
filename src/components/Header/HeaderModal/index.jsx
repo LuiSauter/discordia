@@ -22,7 +22,7 @@ const HeaderModal = ({ visible, handleVisible }) => {
     <Fragment>
       {visible && <div onClick={handleVisible} className='lg:hidden bg-[#0000004d] fixed inset-0 transition-all z-10' />}
       <div
-        className={`lg:hidden bg-white fixed rounded-l-2xl top-0 right-0 bottom-0 w-80 ${transitionModal} pt-6 pr-12 pb-28 pl-6 overflow-auto min-h-screen z-20`}
+        className={`lg:hidden bg-white fixed rounded-l-2xl top-0 right-0 bottom-0 w-80 ${transitionModal} pt-6 pr-12 pb-28 pl-6 overflow-auto z-20`}
       >
         <div className='flex gap-4 flex-col'>
           <Link href="/" className='flex gap-[1px] text-[19px] text-black font-extrabold'>
