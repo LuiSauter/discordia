@@ -1,12 +1,10 @@
 import { Fragment } from 'react';
-import { Switch } from 'wouter';
-import { Route } from 'wouter'
+import { Switch, Redirect, Route } from 'wouter';
 import { Provider } from 'react-redux'
 import store from './store'
 import { ToggleContextProvider } from './context/ToggleContext';
 import Home from './Pages/Home';
 import Login from "./Pages/Login";
-import { Redirect } from 'wouter';
 // import { Router } from 'wouter';
 // import makeCachedMatcher from 'wouter/matcher'
 // import { pathToRegexp } from 'path-to-regexp'
