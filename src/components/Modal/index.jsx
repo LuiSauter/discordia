@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { serverImages } from '../../assets/data/serverImages'
 import { useToggle } from '../../hooks/useToggle'
@@ -6,9 +6,10 @@ import { createServer } from '../../services'
 import Portal from '../Portal'
 
 const Modal = () => {
-  const { toggleModal } = useToggle()
+  const { toggleModal, showModal } = useToggle()
   const [formState, setFormState] = useState({ serverName: '', image: '' })
   const { data } = useSelector(state => state.user)
+  const refModal = useRef(null)
 
   const handleChange = (e) => {
     setFormState(prevState => ({ ...prevState, image: e.target.value }))
@@ -27,9 +28,20 @@ const Modal = () => {
     })
   }
 
+  useEffect(() => {
+    let cleanup = true
+    if (cleanup) {
+      showModal ? refModal.current.showModal() : refModal.current.close()
+    }
+    return () => {
+      cleanup = false
+    }
+  }, [showModal])
+
+
   return (
     <Portal wrapperId='portal-root'>
-      <dialog id='dialog-server' className='scrollbar-hidden p-5 w-full sm:w-[440px] h-min rounded-lg select-none overflow-y-auto overflow-x-hidden'>
+      <dialog ref={refModal} id='dialog-server' className='scrollbar-hidden p-5 w-full sm:w-[440px] h-min rounded-lg select-none overflow-y-auto overflow-x-hidden'>
         <header className='grid place-content-center place-items-center'>
           <h2 className='text-2xl font-bold py-1'>Personaliza tu servidor</h2>
           <p className='text-slate-500 text-sm text-center'>Dale una personalidad propia a tu nuevo servidor con un nombre y un icono. Siempre puedes cambiarlo más tarde.</p>
@@ -49,7 +61,7 @@ const Modal = () => {
         <section>
           <form onSubmit={handleSubmit} className='flex flex-col'>
             <h3 className='text-slate-600 text-xs font-semibold py-2'>NOMBRE DEL SERVIDOR</h3>
-            <input onInput={handleInputText} type="text" required minLength={1} className='px-4 py-2 text-slate-600 outline-none bg-sky-200/60 rounded-md' />
+            <input onInput={handleInputText} type="text" required autoFocus minLength={1} className='px-4 py-2 text-slate-600 outline-none bg-sky-200/60 rounded-md' />
             <span className='text-gray-400 text-xs pt-2'>Al crear un servidor, aceptas las Directivas de la comunidad de discordia</span>
             <footer className='w-full flex flex-row justify-between pt-7'>
               <button type='button' onClick={toggleModal} className='px-8 py-2 rounded-md'>Cancelar</button>

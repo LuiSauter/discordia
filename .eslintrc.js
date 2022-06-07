@@ -16,16 +16,16 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react'
-  ],
+  plugins: ['react', 'react-hooks'],
   rules: {
     indent: ['warn', 2],
     'react/no-unescaped-entities': 'off',
     'react/jsx-indent': [2, 2, { indentLogicalExpressions: true }],
     "react/jsx-indent-props": [2, 2],
     'no-unused-vars': 'warn',
-    'react/prop-types': 0 // disable prop-types
+    'react/prop-types': 0, // disable prop-types
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
   settings: {
     react: {

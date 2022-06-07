@@ -55,6 +55,7 @@ const ServerNav = () => {
             <ServerIcon
               image={serverImages[server.image]}
               serverId={server._id}
+              channelId={server.channels[1]._id}
             />
           </li>
         ))}
