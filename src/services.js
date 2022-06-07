@@ -23,7 +23,6 @@ export const getUser = async ({ username = '' }) => {
 }
 
 export const createServer = async ({ serverName = '', image = '', userId = '' }) => {
-  console.log([{ serverName, image, userId }])
   const res = await fetch(`${dbConstants.dbApiUri + dbConstants.dbEndPointServer}/add`, {
     method: 'POST',
     cache: 'no-cache',

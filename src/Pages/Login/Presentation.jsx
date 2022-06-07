@@ -1,4 +1,3 @@
-import React from 'react'
 import { presentation } from '../../assets/data/presentation'
 import { Fourth } from '../../assets/icons/presentation/Fourth'
 

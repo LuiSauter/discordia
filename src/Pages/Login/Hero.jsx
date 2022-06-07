@@ -1,4 +1,3 @@
-import React from 'react'
 import { Download } from '../../assets/icons/Download'
 import { HeroOne } from '../../assets/icons/HeroOne'
 import { HeroThree } from '../../assets/icons/HeroThree'
