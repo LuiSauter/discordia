@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useLocation } from 'wouter'
 import { auth, signInWithPopup, provider } from '../../../lib/firebase'
