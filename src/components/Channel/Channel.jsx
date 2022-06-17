@@ -4,7 +4,7 @@ import { Exit } from '../../assets/icons/Exit'
 import { HashtagIcon } from '../../assets/icons/HashtagIcon'
 import avatar from '../../assets/images/avatar-default.svg'
 
-const Channel = ({ id, photoUrl, name, isServer = false }) => {
+const Channel = ({ id, photoUrl, name, isServer = false, serverId, isActive = false }) => {
   const [overUser, setOverUser] = useState(false)
   const handleOverUser = () => setOverUser(!overUser)
 
@@ -13,14 +13,14 @@ const Channel = ({ id, photoUrl, name, isServer = false }) => {
     currentTarget.src = avatar
   }
   return (
-    <li
+    <article
       onMouseEnter={handleOverUser}
       onMouseLeave={handleOverUser}
-      className='flex gap-1 items-center cursor-pointer hover:bg-discord_channel_hover py-[6px] px-2 rounded-md hover:text-white/80 transition-all duration-100'
+      className={`flex gap-1 items-center cursor-pointer rounded-md hover:text-white/80 transition-all duration-100 ${isActive ? 'bg-discord_channel_hover' : 'hover:bg-discord_channel_hover/80'}`}
     >
       <div className='flex flex-row justify-between items-center w-full'>
         <Link
-          href={`/channels/@me/${id}`} className='flex flex-row items-center'
+          href={`/channels/${isServer ? serverId : '@me'}/${id}`} className='flex flex-row px-2 py-[4px] items-center w-full h-full'
         >
           {photoUrl === 'hash' ?
             <HashtagIcon /> :
@@ -28,7 +28,7 @@ const Channel = ({ id, photoUrl, name, isServer = false }) => {
               src={photoUrl}
               onError={handleImgError}
               alt={name}
-              className='w-8 h-8 rounded-full mr-3'
+              className='w-8 h-8 rounded-full mr-3 object-cover'
             />
           }
           <span className='text-sm w-'>
@@ -36,12 +36,12 @@ const Channel = ({ id, photoUrl, name, isServer = false }) => {
           </span>
         </Link>
         {
-          !isServer && <button className={`${overUser ? '' : 'hidden'} text-white/50 hover:text-white/80`}>
+          !isServer && <button className={`${overUser ? '' : 'hidden'} text-white/50 hover:text-white/80 pr-2`}>
             <Exit width='h-[18px] w-[18px]' />
           </button>
         }
       </div>
-    </li>
+    </article>
   )
 }
 

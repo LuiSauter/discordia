@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useRoute } from 'wouter'
 import { ArrowDown } from '../../../assets/icons/ArrowDown'
 import { LoadingIcon } from '../../../assets/icons/Loading'
 import { Plus } from '../../../assets/icons/Plus'
@@ -9,6 +10,7 @@ const UserChannels = () => {
   const [mouseOver, setMouseOver] = useState(false)
   const { user } = useSelector(state => state)
   const handleOver = () => setMouseOver(!mouseOver)
+  const [match, paramsUser] = useRoute('/channels/@me/:id')
 
   return (
     <nav className='flex flex-col h-full justify-start overflow-y-auto'>
@@ -32,7 +34,15 @@ const UserChannels = () => {
             user.data?.channels.map(channel => {
               const owner = channel.owner.find(yourUser => yourUser._id !== user.data?._id)
               const { username, photoUrl } = owner
-              return <Channel key={channel._id} id={channel._id} photoUrl={photoUrl} name={username} />
+              return (
+                <Channel
+                  key={channel._id}
+                  id={channel._id}
+                  photoUrl={photoUrl}
+                  name={username}
+                  isActive={match && channel._id === paramsUser.id}
+                />
+              )
             })
           ) : (
             <div className='grid place-content-center place-items-center h-full py-4 w-full'>
