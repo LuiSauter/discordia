@@ -64,14 +64,13 @@ const Home = () => {
 
   return (
     <Fragment>
-      <div className='flex h-full overflow-x-hidden relative'>
+      <div className='flex h-full w-screen overflow-x-hidden relative'>
         <ServerNav />
         <section
           className={`h-full bg-discord_channels_bg w-[220px] sm:w-60 z-10 flex flex-col justify-between absolute transform -translate-x-full md:translate-x-[72px] transition-transform duration-75 ${activeMenu && 'translate-x-[72px]'}`}
         >
-          {/* Channels (user|server) */}
           {match || matchUser ? <UserChannels /> : <ServerChannels />}
-          <User image={data?.photoUrl} username={data.username} id={data._id} />
+          <User image={data?.photoUrl} username={data?.username} id={data?._id} />
         </section>
         <Chat />
       </div>
