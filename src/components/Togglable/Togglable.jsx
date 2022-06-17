@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Togglable = ({ onClick, children, stringStyle }) => {
   return (

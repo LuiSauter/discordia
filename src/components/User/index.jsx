@@ -1,4 +1,3 @@
-import React from 'react'
 import { Headset, Mic, Setting } from '../../assets/icons/action'
 import avatar from '../../assets/images/avatar-default.svg'
 

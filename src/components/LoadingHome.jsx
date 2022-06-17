@@ -1,4 +1,3 @@
-import React from 'react'
 import { LoadingIcon } from '../assets/icons/Loading'
 
 const LoadingHome = () => {

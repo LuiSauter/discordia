@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useRoute, useLocation } from 'wouter'
 import { serverImages } from '../../assets/data/serverImages'
+import { LoadingIcon } from '../../assets/icons/Loading'
 import { Plus } from '../../assets/icons/Plus'
 import { useToggle } from '../../hooks/useToggle'
 import ServerIcon from '../ServerIcon'
@@ -15,24 +16,25 @@ const ServerNav = () => {
   const [match] = useRoute('/channels/@me')
   const { data } = useSelector(state => state.user)
 
+  let subscribe = true
   useEffect(() => {
-    let cleanup = true
-    if (cleanup) {
+    if (subscribe) {
       if (params !== null) {
         setCurrentLocation(params.id)
       }
     }
     return () => {
-      cleanup = false
+      subscribe = false
     }
-  }, [params])
+  }, [params?.id])
 
   const navigateToHome = () => {
     setLocation(`/channels/${currentLocation === '' ? '@me' : '@me/' + currentLocation}`, { replace: true })
   }
+
   return (
     <nav
-      className={`scrollbar-hidden flex flex-col flex-shrink-0 space-y-3 items-center bg-discord_nav_server h-full overflow-y-auto overflow-x-hidden z-20 -translate-x-full transition-transform duration-75 w-0 md:translate-x-0 md:py-3 md:min-w-min md:w-[72px] ${activeMenu && 'min-w-[70px] translate-x-0 py-3'}`}
+      className={`scrollbar-hidden flex flex-col flex-shrink-0 space-y-3 items-center bg-discord_nav_server h-full select-none overflow-y-auto overflow-x-hidden z-20 -translate-x-full transition-transform duration-75 w-0 md:translate-x-0 md:py-3 md:min-w-min md:w-[72px] ${activeMenu && 'min-w-[70px] translate-x-0 py-3'}`}
     >
       <div className='relative flex flex-row w-full'>
         <span
@@ -50,15 +52,19 @@ const ServerNav = () => {
       </div>
       <hr className='border-gray-700 border w-8 mx-auto bg-discord_server' />
       <ul className='flex flex-col gap-3 w-full'>
-        {data.servers && data.servers.map(server => (
+        {data?.servers ? data?.servers.map(server => (
           <li key={server._id} className='relative flex flex-row w-full'>
             <ServerIcon
               image={serverImages[server.image]}
               serverId={server._id}
-              channelId={server.channels[1]._id}
+              channelId={server.channels[0]._id}
             />
           </li>
-        ))}
+        )) : (
+          <div className='grid place-content-center place-items-center py-4 w-full'>
+            <LoadingIcon />
+          </div>
+        )}
         <button onClick={toggleModal} className='h-[48px] w-[48px] mx-auto server-icon server-default bg-discord_server flex justify-center items-center hover:bg-discord_green text-discord_green hover:text-white'>
           <Plus styleString='w-8 w-8' />
         </button>
