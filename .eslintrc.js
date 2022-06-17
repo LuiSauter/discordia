@@ -25,7 +25,7 @@ module.exports = {
     'no-unused-vars': 'warn',
     'react/prop-types': 0, // disable prop-types
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'off',
   },
   settings: {
     react: {
