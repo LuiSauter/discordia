@@ -5,6 +5,7 @@ const INITIAL_STATE = { information: [], channelText: [], channelVoice: [] }
 
 export const useChannels = (id) => {
   const [channels, setChannels] = useState(INITIAL_STATE)
+  const [serverName, setServerName] = useState('')
   const { data } = useSelector(state => state.user)
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export const useChannels = (id) => {
       setChannels(INITIAL_STATE)
       if (data.servers) {
         const server = data.servers.find(server => server._id === id)
+        setServerName(server.serverName)
         for (let index = 0; index < server.channels.length; index++) {
           const element = server.channels[index];
           const { section } = element
@@ -29,5 +31,5 @@ export const useChannels = (id) => {
     }
   }, [data.servers, id])
 
-  return { channels }
+  return { channels, serverName }
 }
