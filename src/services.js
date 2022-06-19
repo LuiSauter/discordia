@@ -55,6 +55,21 @@ export const getChannel = async ({ channelId }) => {
   }
 }
 
+export const createMessage = async (objectData) => {
+  try {
+    const res = await fetch(`${dbConstants.dbApiUri + dbConstants.dbEndPointChannel}/msg`, {
+      method: 'POST',
+      cache: 'no-cache',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(objectData)
+    })
+    return res.status
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+
 class NetworkError extends Error {
   constructor(message) {
     super('Network Error ', message)
