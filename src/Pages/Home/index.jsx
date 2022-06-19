@@ -13,6 +13,8 @@ import UserChannels from '../../components/Channel/User'
 import ServerChannels from '../../components/Channel/Server'
 import Modal from '../../components/Modal'
 import ServerNav from '../../components/SeverNav'
+import Container from '../../components/chat/Container'
+import { LogoHome } from '../../assets/icons/presentation/LogoHome'
 
 const Home = () => {
   const [user, loading] = useAuthState(auth)
@@ -72,7 +74,15 @@ const Home = () => {
           {match || matchUser ? <UserChannels /> : <ServerChannels />}
           <User image={data?.photoUrl} username={data?.username} id={data?._id} />
         </section>
-        <Chat />
+        {match ? (
+          <Container header='Amigos' aside=''>
+            <div className='w-full grid place-content-center place-items-center'>
+              <figure className='relative w-72 md:w-96 h-auto'>
+                <LogoHome />
+              </figure>
+            </div>
+          </Container>
+        ) : <Chat myId={data?._id} />}
       </div>
       {loading ? <LoadingHome /> : null}
       <Modal />

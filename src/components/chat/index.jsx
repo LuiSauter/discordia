@@ -1,20 +1,20 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRoute } from 'wouter'
-import { Menu } from '../../assets/icons/action'
-import { useToggle } from '../../hooks/useToggle'
+import { HashtagIcon } from '../../assets/icons/HashtagIcon'
 import { fetchChannel } from '../../store/slices/channel'
+import Image from '../Image'
+import Container from './Container'
 import FormChat from './FormChat'
 import Message from './Message'
 
-const Chat = ({ username = "valen" }) => {
+const Chat = ({ myId }) => {
   const messagesEndRef = useRef(null)
-  const { toggleMenu, activeMenu } = useToggle()
+  const [yourUser, setYourUser] = useState({})
   const [, paramsServer] = useRoute('/channels/:serverId/:id')
   const [, paramsUser] = useRoute('/channels/@me/:id')
   const dispatch = useDispatch()
   const { data } = useSelector(state => state.channel)
-
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
   }
@@ -33,26 +33,37 @@ const Chat = ({ username = "valen" }) => {
 
   useEffect(() => {
     if (subscribe) {
-      scrollToBottom()
+      data?.owner && myId && setYourUser(data?.owner?.find(user => user._id !== myId))
     }
     return () => {
+      scrollToBottom()
       subscribe = false
     }
-  }, [data?.messages])
-
-  // console.log((data?.owner && dataUser?._id) && data?.owner.find(user => user._id === dataUser?._id)._id)
+  }, [data?.messages, myId])
 
   return (
-    <section className={`bg-discord_hover h-full w-full overflow-y-hidden relative flex flex-col md:pl-60 ${activeMenu && 'ml-[230px] sm:ml-[250px] min-w-[400px] scale-95 rounded-xl md:ml-0 md:scale-100 md:min-w-min md:rounded-none transition-all duration-100'} transform transition-transform duration-100`}>
-      {activeMenu && <div className='absolute top-0 left-0 w-full h-full bg-discord_nav_server opacity-80 z-10 cursor-pointer md:hidden' onClick={toggleMenu} />}
-      <header className='px-4 w-full border-b-2 border-discord_nav_server/50 hover:bg-discord_hover flex flex-row items-center justify-start gap-4 text-white transition-all'>
-        <button onClick={toggleMenu} className='md:hidden hover:bg-discord_inputChat transition-colors duration-75 ease-out rounded-md px-2 py-[6px]'><Menu /></button>
-        <h3 className='text-white text-base font-bold my-3'>Channel valen</h3>
-      </header>
-      <main className='h-full w-full overflow-hidden flex flex-row relative text-white'>
-        <div className='w-full overflow-hidden flex flex-col relative justify-end'>
-          <div className='scrollbar-chat w-full h-full overflow-y-auto mb-16'>
-            <ul className='flex flex-col gap-5 pt-4'>
+    <>
+      <Container header={data?.channelName ? data?.channelName : yourUser?.username} aside=''>
+        <div className='w-full h-full overflow-hidden flex flex-col relative justify-end'>
+          <div className='relative flex flex-col gap-5 justify-end w-full h-full overflow-hidden mb-1 transition-all duration-150'>
+            <ul className='scrollbar-chat relative w-full flex flex-col gap-5 overflow-y-auto transition-all duration-150'>
+              <li className='relative min-h-[200px] pt-4 flex flex-col px-4 gap-3'>
+                <figure className='relative h-20 w-20'>
+                  {data?.channelName
+                    ? <HashtagIcon classStyle='w-full h-full bg-discord_channel_hover/80 rounded-full p-2' />
+                    : <Image img={yourUser?.photoUrl} textAlt={yourUser?.username} classStyle='h-full w-full rounded-full' />}
+                </figure>
+                <h1 className='text-4xl font-bold'>
+                  {data?.channelName ? <>¡Te damos la bienvenida a #{data?.channelName}!</> : yourUser?.username}
+                </h1>
+                <p className='text-slate-200 text-base font-light'>
+                  Este es el comienzo de
+                  {data?.channelName
+                    ? 'este servidor.'
+                    : <>tu historial de mensajes directos con <span className='font-semibold'>@{yourUser?.username}</span></>}
+                </p>
+                <hr className='mt-1 border-slate-200/10' />
+              </li>
               {data?.messages && data?.messages.map(message => (
                 <Message
                   key={message._id}
@@ -65,13 +76,10 @@ const Chat = ({ username = "valen" }) => {
               <div ref={messagesEndRef} />
             </ul>
           </div>
-          <FormChat username={username} />
+          <FormChat username={yourUser?.username} channelId={paramsServer?.id || paramsUser?.id} />
         </div>
-        <aside className='hidden w-56 lg:flex flex-shrink-0 h-full bg-discord_channels_bg transition-all duration-150'>
-          ass
-        </aside>
-      </main>
-    </section>
+      </Container>
+    </>
   )
 }
 
