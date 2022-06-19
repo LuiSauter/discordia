@@ -72,5 +72,5 @@ export default function useTimeAgo(timestamp) {
       }
     }
   }
-  return { hourAndMinute: '1s', timeago: '1s' }
+  return { hourAndMinute: 'hace 1s', timeago: 'hace 1s' }
 }
