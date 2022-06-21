@@ -17,6 +17,7 @@ module.exports = {
         discord_channel_hover: '#4d515a',
         discord_user: '#292b2f',
         discord_inputChat: '#40444b',
+        discord_menuACtion: '#18191c'
       }
     },
   },

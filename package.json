@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --verbose",
+    "test": "react-scripts test --verbose --silent",
     "eject": "react-scripts eject",
     "co": "sui-mono commit",
     "lint": "eslint --fix"
