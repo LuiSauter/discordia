@@ -11,10 +11,10 @@ import Chat from '../../components/chat'
 import { fetchUser } from '../../store/slices/user'
 import UserChannels from '../../components/Channel/User'
 import ServerChannels from '../../components/Channel/Server'
-import Modal from '../../components/Modal'
 import ServerNav from '../../components/SeverNav'
 import Container from '../../components/chat/Container'
 import { LogoHome } from '../../assets/icons/presentation/LogoHome'
+import CreateServer from '../../components/SeverNav/CreateServer'
 
 const Home = () => {
   const [user, loading] = useAuthState(auth)
@@ -85,7 +85,7 @@ const Home = () => {
         ) : <Chat myId={data?._id} />}
       </div>
       {loading ? <LoadingHome /> : null}
-      <Modal />
+      <CreateServer />
     </Fragment>
   )
 }

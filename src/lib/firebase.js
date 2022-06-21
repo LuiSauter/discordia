@@ -11,9 +11,9 @@ const firebaseConfig = {
   appId: dbConstants.dbAuthAppId
 };
 
-initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig)
 
-const auth = getAuth()
+const auth = getAuth(app)
 const provider = new GoogleAuthProvider()
 
 export { auth, provider, signInWithPopup, signOut }
