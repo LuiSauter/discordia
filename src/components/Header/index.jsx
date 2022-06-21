@@ -22,7 +22,6 @@ const Header = () => {
         <div className='hidden lg:flex space-x-6 text-white'>
           {hrefs.map((hrf, index) => (
             <span key={index} className='link' title={hrf}>{hrf}</span>
-            // <Link key={index} href={`/${hrf.toLowerCase()}`} className='link'>{hrf}</Link>
           ))}
         </div>
         <div className='flex space-x-4 items-center'>

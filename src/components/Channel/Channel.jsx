@@ -32,7 +32,7 @@ const Channel = ({ id, photoUrl, name, isServer = false, serverId, isActive = fa
             />
           }
           <span className='text-sm w-'>
-            {name.length < 20 ? name : name.substring(0, 20) + '...'}
+            {name?.length < 20 ? name : name?.substring(0, 20) + '...'}
           </span>
         </Link>
         {
