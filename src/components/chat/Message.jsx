@@ -57,7 +57,7 @@ const Message = ({ id = '', author, message = '', createdAt = Date.now(), channe
           </h2>
           <p className='flex flex-col'>
             {message.split('\n').map((msg, index) => (
-              msg === '' ? <br /> : <span key={index} className='text-slate-200 font-light'>{msg}</span>
+              msg === '' ? <br key={index} /> : <span key={index} className='text-slate-200 font-light'>{msg}</span>
             ))}
           </p>
         </div>

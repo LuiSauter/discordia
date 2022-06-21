@@ -76,7 +76,7 @@ const Home = () => {
         </section>
         {match ? (
           <Container header='Amigos' aside=''>
-            <div className='w-full grid place-content-center place-items-center'>
+            <div className='w-full min-w-[300px] grid place-content-center place-items-center'>
               <figure className='relative w-72 md:w-96 h-auto'>
                 <LogoHome />
               </figure>

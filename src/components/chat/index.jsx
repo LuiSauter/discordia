@@ -58,7 +58,7 @@ const Chat = ({ myId }) => {
                       ? <HashtagIcon classStyle='w-full h-full bg-discord_channel_hover/80 rounded-full p-2' />
                       : <Image img={yourUser?.photoUrl} textAlt={yourUser?.username} classStyle='h-full w-full rounded-full' />}
                   </figure>
-                  <h1 className='text-4xl font-bold min-h-[40px]'>
+                  <h1 className='text-4xl font-bold min-h-[48px]'>
                     {data?.channelName
                       ? <>¡Te damos la bienvenida a #{data?.channelName}!</>
                       : yourUser?.username ? yourUser?.username : 'Username'}

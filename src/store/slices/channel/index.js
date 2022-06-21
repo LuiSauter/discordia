@@ -26,7 +26,6 @@ export const fetchChannel = ({ channelId }) => (dispatch) => {
  * @returns {Promise<void>}
  */
 export const sendMessage = (objectData) => (dispatch) => {
-  // const newData = { _id: "62abf32fc3edab40c1e2e45b", message: objectData.message, channelId: objectData.channelId, createdAt: Date.now(), author: { username: "JancoAlvarezLuisGabriel", email: "janco7249@gmail.com", photoUrl: "https://lh3.googleusercontent.com/a-/AOh14GiprjDlsYm61mv-8-L6xMoXFAw5t38G8B7-wbsvcg=s96-c" }}
   createMessage(objectData)
 }
 
