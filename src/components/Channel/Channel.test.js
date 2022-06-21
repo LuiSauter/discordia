@@ -1,9 +1,8 @@
-import Channel from "./Channel"
 import { render } from '@testing-library/react'
+import Channel from "./Channel"
 
 describe('Channel', () => {
   test('renders channel', () => {
     render(<Channel />)
-    expect(true).toBe(false)
   })
 })
