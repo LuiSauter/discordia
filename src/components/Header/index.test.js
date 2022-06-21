@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { hrefs } from '../../assets/data/hrefs'
-import Header from './'
+import Header from './index'
 
 describe('<Header>', () => {
   test('should render all nav', () => {
@@ -18,4 +18,7 @@ describe('<Header>', () => {
     expect(logo).toBeInTheDocument()
     expect(logo).toHaveAttribute('href', '/')
   })
+  it('test', () => {
+    expect(true).toBe(true)
+  });
 })

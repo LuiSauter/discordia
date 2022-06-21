@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
-import ButtonLogin from "."
+import ButtonLogin from '.'
 
 describe('<ButtonLogin>', () => {
   test('should show the button login when initial value of unauthenticated', () => {
@@ -15,5 +15,8 @@ describe('<ButtonLogin>', () => {
     fireEvent.click(buttonLogin)
 
     expect(container).toHaveTextContent('Open Discordia')
+  })
+  it('test', () => {
+    expect(true).toBe(true)
   })
 })
