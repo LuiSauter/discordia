@@ -3,15 +3,19 @@ import { Link } from 'wouter'
 import { Exit } from '../../assets/icons/Exit'
 import { HashtagIcon } from '../../assets/icons/HashtagIcon'
 import avatar from '../../assets/images/avatar-default.svg'
+import { useToggle } from '../../hooks/useToggle'
 
 const Channel = ({ id, photoUrl, name, isServer = false, serverId, isActive = false }) => {
   const [overUser, setOverUser] = useState(false)
+  const { toggleMenu } = useToggle()
+
   const handleOverUser = () => setOverUser(!overUser)
 
   const handleImgError = ({ currentTarget }) => {
     currentTarget.onerror = null
     currentTarget.src = avatar
   }
+
   return (
     <article
       onMouseEnter={handleOverUser}
@@ -21,6 +25,7 @@ const Channel = ({ id, photoUrl, name, isServer = false, serverId, isActive = fa
       <div className='flex flex-row justify-between items-center w-full'>
         <Link
           href={`/channels/${isServer ? serverId : '@me'}/${id}`} className='flex flex-row px-2 py-[4px] items-center w-full h-full'
+          onClick={toggleMenu}
         >
           {photoUrl === 'hash' ?
             <HashtagIcon /> :
