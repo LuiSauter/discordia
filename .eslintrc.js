@@ -26,6 +26,7 @@ module.exports = {
     'react/prop-types': 0, // disable prop-types
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'off',
+    'no-undef': "off"
   },
   settings: {
     react: {
