@@ -9,7 +9,7 @@ import ServerIcon from '../ServerIcon'
 
 const ServerNav = () => {
   const [, setLocation] = useLocation()
-  const { activeMenu, toggleModal } = useToggle()
+  const { activeMenu, toggleModal, toggleMenu } = useToggle()
   const [mouseHover, setMouseHover] = useState(false)
   const [currentLocation, setCurrentLocation] = useState('')
   const [matchUser, params] = useRoute('/channels/@me/:id')
@@ -29,7 +29,12 @@ const ServerNav = () => {
   }, [params?.id])
 
   const navigateToHome = () => {
-    setLocation(`/channels/${currentLocation === '' ? '@me' : '@me/' + currentLocation}`, { replace: true })
+    if (currentLocation === '') {
+      setLocation('/channels/@me', { replace: true })
+    } else {
+      setLocation('/channels/@me/' + currentLocation, { replace: true })
+      toggleMenu()
+    }
   }
 
   return (
