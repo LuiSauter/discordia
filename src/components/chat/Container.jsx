@@ -14,8 +14,12 @@ const Container = ({ children, header = 'Discordia', aside = false }) => {
       </header>
       <main className='h-full w-full overflow-hidden flex flex-row relative text-white'>
         {children}
-        {aside && <aside className='hidden w-56 lg:flex flex-shrink-0 h-full bg-discord_channels_bg transition-all duration-150'>
-          {aside}
+        {aside && <aside className='hidden w-[350px] p-5 lg:flex flex-col flex-shrink-0 h-full bg-discord_hover transition-all duration-150 border-l border-discord_gray/20'>
+          <h3 className='w-full font-bold text-lg pb-5'>{aside}</h3>
+          <p className='text-center'>
+            <h4 className='font-bold'>Por ahora está todo tranquilo...</h4>
+            <span className='font-light text-discord_gray text-sm leading-tight'>Cuando un amigo empiece a realizar una actividad, como jugar o hablar por voz, ¡te lo mostraremos aquí!</span>
+          </p>
         </aside>}
       </main>
     </section>

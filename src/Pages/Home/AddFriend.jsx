@@ -15,8 +15,8 @@ const AddFriend = () => {
   }
 
   return (
-    <Container header='Amigos' aside=''>
-      <section className='flex flex-col h-full'>
+    <Container header='Amigos' aside='Activo ahora'>
+      <section className='flex flex-col h-full w-full'>
         <article className='w-full px-8 py-5 flex flex-col gap-3 border-b border-discord_gray/20'>
           <h2 className='font-bold text-base'>AÑADIR AMIGO</h2>
           <span className="text-sm text-discord_gray font-light">Puedes añadir a un amigo con su Discord Tag. ¡Distingue entre mAyÚsCuLaS y MiNúScUlAs!</span>
