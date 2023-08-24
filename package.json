@@ -27,7 +27,7 @@
     "wouter": "2.8.0-alpha.2"
   },
   "devDependencies": {
-    "@s-ui/mono": "2.35.0",
+    "@s-ui/mono": "2.37.0",
     "autoprefixer": "10.4.4",
     "eslint": "8.17.0",
     "eslint-config-prettier": "8.5.0",
